@@ -15,7 +15,7 @@ find_package(builtin_interfaces REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
-rosidl_generate_interfaces(marti_common_msgs
+rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/BoolStamped.msg"
   "msg/ByteArrayStamped.msg"
   "msg/DurationStamped.msg"
@@ -39,5 +39,8 @@ rosidl_generate_interfaces(marti_common_msgs
   "msg/UInt8Stamped.msg"
   DEPENDENCIES builtin_interfaces std_msgs
 )
+
+ament_export_dependencies(rosidl_default_runtime)
+ament_export_include_directories(include)
 
 ament_package()
